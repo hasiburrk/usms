@@ -160,11 +160,7 @@
               
             </div>
 
-            <div class="form-group col-md-6 mb-3">
-                <label for="photo" class="col-sm-4 col-form-label text-right">Student Photo</label>
-                <input type="file" name="student_photo" class="form-control col-sm-8" id="photo">
-            </div>
-
+            
             <div class="form-group col-12 mb-3 pl-2">
                 <label for="address" class="col-sm-2 col-form-label text-right">Address</label>
                 <input type="text" name="address" class="form-control col-sm-10" id="address" placeholder="Detail Address" value="" required/>

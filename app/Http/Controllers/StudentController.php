@@ -157,29 +157,36 @@ class StudentController extends Controller
         ]);
     }
 
-    public function studentBasicInfoUpdate(Request $request){
-        $student = Student::find($request->student_id);
-        $student->student_name =$request->student_name;
-        $student->father_name =$request->father_name;
-        $student->father_mobile =$request->father_mobile;
-        $student->father_profession =$request->father_profession;
-        $student->mother_name =$request->mother_name;
-        $student->mother_mobile =$request->mother_mobile;
-        $student->mother_profession =$request->mother_profession;
-        $student->email_address =$request->email_address;
-        $student->student_mobile =$request->student_mobile;
-        $student->student_relagion =$request->student_relagion;
-        $student->student_roll =$request->student_roll;
-        $student->student_reg =$request->student_reg;
-        if (isset($request->student_photo)){
-           $this->updateStudentPhoto($request);
-        }
-        $student->address =$request->address;
-        $student->save();
-        
-        return $this->studentDetails($request->student_id);
+    public function studentInfoUpdateForm($id){
+        $student = Student::find($id);
+        return view('student.details.basic-info-update-form',[
+            'student'=>$student,
+        ]);
 
     }
+
+    public function studentInfoUpdate(Request $request){
+        $student = Student::find($request->student_id);
+        $student->student_name = $request->student_name;
+        $student->father_name = $request->father_name;
+        $student->father_mobile = $request->father_mobile;
+        $student->father_profession = $request->father_profession;
+        $student->mother_name = $request->mother_name;
+        $student->mother_mobile = $request->mother_mobile;
+        $student->mother_profession = $request->mother_profession;
+        $student->email_address = $request->email_address;
+        $student->student_mobile = $request->student_mobile;
+        $student->student_relagion = $request->student_relagion;
+        $student->student_roll = $request->student_roll;
+        $student->student_reg = $request->student_reg;
+        if (isset($request->student_photo)){
+            $this->updateStudentPhoto($request);
+         }
+         $student->address =$request->address;
+         $student->save();
+         return $this->studentDetails($request->student_id);
+    }
+
 
     protected function getSingleStudent($id){
         $students = DB::table('students')
@@ -231,7 +238,11 @@ class StudentController extends Controller
           ]);
     }
 
-
+public function studentDelete($id){
+    $student = Student::find($id);
+        $student->delete();
+        return redirect('student-list')->with('error_message','Student Delete Sucessfully.');
+}
 
 
 

@@ -446,10 +446,16 @@ Route::get('/student-details/{id}',[
     'as'=>'student-details'
 ]);
 
-Route::post('/student-basic-info-update',[
-    'uses'=>'StudentController@studentBasicInfoUpdate',
-    'as'=>'student-basic-info-update'
+
+Route::get('/student-info-update/{id}',[
+    'uses'=>'StudentController@studentInfoUpdateForm',
+    'as'=>'student-info-update'
 ]);
+Route::post('/student-info-updated',[
+    'uses'=>'StudentController@studentInfoUpdate',
+    'as'=>'student-info-updated'
+]);
+
 
 Route::get('/dept-wise-student-list/{userId}',[
     'uses'=>'StudentController@deptWiseStudentList',
