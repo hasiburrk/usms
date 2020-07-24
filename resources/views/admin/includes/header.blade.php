@@ -6,28 +6,19 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PUST | Student Management System</title>
-    <!--    Font Awesome Stylesheet-->
-<link rel="stylesheet" href="{{ asset('/')}}/admin/assets/fonts/fa/css/all.min.css">
-    <!--    Animate CSS-->
-    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/css/animate.css">
-    <!--    Owl Carosel Stylesheets-->
-    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/plugins/owl-carosel/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/plugins/owl-carosel/css/owl.theme.default.css">
-    <!--    Magnetic Popup-->
-    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/plugins/magnific-popup/css/magnific-popup.css">
-    <!--    Bootstrap-4.3 Stylesheet-->
-    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/css/sub-dropdown.css">
-    <!--    Data Table CSS-->
-    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/plugins/data-table/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/plugins/data-table/css/fixedHeader.bootstrap4.min.css">
-    <!--    Theme Stylesheet-->
-    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/css/style.css">
-    <!--    Favicon-->
-    <link rel="shortcut icon" href="{{ asset('/')}}/admin/assets/images/favicon.png" type="image/x-icon">
-    <!--    jQuery-->
-    {{--<script src="{{ asset('/')}}/admin/assets/js/jquery-3.3.1.slim.min.js"></script> --}}
-     <script src="{{ asset('/')}}/admin/assets/js/jquery-3.4.1.js"></script>
+<link rel="stylesheet" href="/admin/assets/fonts/fa/css/all.min.css">
+    <link rel="stylesheet" href="/admin/assets/css/animate.css">
+    <link rel="stylesheet" href="/admin/assets/plugins/owl-carosel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/admin/assets/plugins/owl-carosel/css/owl.theme.default.css">
+    <link rel="stylesheet" href="/admin/assets/plugins/magnific-popup/css/magnific-popup.css">
+    <link rel="stylesheet" href="/admin/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/admin/assets/css/sub-dropdown.css">
+    <link rel="stylesheet" href="/admin/assets/plugins/data-table/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/admin/assets/plugins/data-table/css/fixedHeader.bootstrap4.min.css">
+    <link rel="stylesheet" href="/admin/assets/css/style.css">
+    <link rel="shortcut icon" href="/admin/assets/images/favicon.png" type="image/x-icon">
+     <script type="text/javascript" src="/admin/assets/js/jquery-3.4.1.js"></script>
+
 </head>
 <body>
 <!--Header Start-->
@@ -52,7 +43,7 @@
 <!--Header End-->
 
 <!--User Avatar Start-->
-<img class="avatar" src="@if(Auth::user()->avatar){{asset('/').'/'.$user->avatar}}@else{{ asset('/')}}/admin/assets/images/avatar.png @endif" alt="Avatar">
+<img class="avatar" src="@if(Auth::user()->avatar){{asset('/').$user->avatar}}@else{{ asset('/')}}/admin/assets/images/avatar.png @endif" alt="Avatar">
 <!--User Avatar Start-->
 
 <!--Main Menu Start-->
@@ -68,7 +59,7 @@
             <a class="nav-link" href="{{ route('home') }}"><span class="fa fa-home"></span> Home <span class="sr-only">(current)</span></a>
             </li>
             @if(Auth::user()->role =='Admin')
-             
+
              <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Student
@@ -81,7 +72,7 @@
                 </ul>
             </li>
             @endif
-            
+
             @if(Auth::user()->role =='Chairman')
 
             <li class="nav-item dropdown">
@@ -89,7 +80,7 @@
                     Student
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    
+
                     <li><a class="dropdown-item" href="{{ route('dept-wise-student-list',['userId'=>Auth::user()->id]) }}">All Students</a></li>
                     <li><a class="dropdown-item" href="{{ route('dept-wise-student') }}">Semester Wise Students</a></li>
                     <li><a class="dropdown-item" href="{{ route('session-wise-student') }}">Session Wise Students</a></li>
@@ -103,7 +94,7 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li><a href="{{ route('course-assign',['userId'=>Auth::user()->id]) }}" class="dropdown-item">Course Assign</a></li>
                     <li><a href="{{ route('course-assign-list',['userId'=>Auth::user()->id]) }}" class="dropdown-item">Course Assign list</a></li>
-                    
+
                     <li><a href="{{ route('course-list-by-chairman',['userId'=>Auth::user()->id])}}" class="dropdown-item">All Courses</a></li>
                     <li><a href="{{ route('teacher-wise-course-list',['userId'=>Auth::user()->id]) }}" class="dropdown-item">My Courses</a></li>
                 </ul>
@@ -164,7 +155,7 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Apply 
+                    Apply
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li class=""><a class="dropdown-item" href="form.html">Apply for Exam</a></li>
@@ -173,7 +164,7 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Library 
+                    Library
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li class=""><a class="dropdown-item" href="form.html">All Books</a></li>
@@ -219,9 +210,9 @@
                     <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">Faculty</a>
                         <ul class="dropdown-menu">
-                        
+
                         <li><a href="{{ route('add-faculty') }}" class="dropdown-item">Add Faculty</a></li>
-                        
+
                         <li><a href="{{ route('faculty-list') }}" class="dropdown-item">Faculty List</a></li>
                         </ul>
                     </li>
@@ -229,9 +220,9 @@
                     <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">Department</a>
                         <ul class="dropdown-menu">
-                        
+
                         <li><a href="{{ route('add-department') }}" class="dropdown-item">Add Department</a></li>
-                        
+
                         <li><a href="{{ route('department-list') }}" class="dropdown-item">Department List</a></li>
                         </ul>
                     </li>
@@ -239,27 +230,27 @@
                     <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">Session</a>
                         <ul class="dropdown-menu">
-                            
+
                             <li><a href="{{ route('add-session') }}" class="dropdown-item">Add Session</a></li>
-                            
+
                             <li><a href="{{ route('session-list') }}" class="dropdown-item">Session List</a></li>
                         </ul>
                     </li>
                     <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">Level &Term</a>
                         <ul class="dropdown-menu">
-                            
+
                             <li><a href="{{ route('add-level-term') }}" class="dropdown-item">Add Level & Term</a></li>
-                            
+
                             <li><a href="{{ route('level-term-list') }}" class="dropdown-item">Level & Term List</a></li>
                         </ul>
                     </li>
                     <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">Course</a>
                         <ul class="dropdown-menu">
-                        
+
                         <li><a href="{{ route('add-course') }}" class="dropdown-item">Add Course</a></li>
-                        
+
                         <li><a href="{{ route('course-list') }}" class="dropdown-item">Course List</a></li>
                         </ul>
                     </li>
@@ -270,7 +261,7 @@
                         <li><a href="{{ route('add-slide') }}" class="dropdown-item">Add Slide</a></li>
                         <li><a href="{{ route('manage-slide') }}" class="dropdown-item">Manage Slide</a></li>
                         </ul>
-                    </li> 
+                    </li>
                     @if(Auth::user()->role=='Admin')
                     <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">Header & Footer</a>
@@ -299,7 +290,7 @@
 
                 </ul>
             </li>
-            
+
         </ul>
 
         <a class="font-weight-bold my-2 my-sm-0 mr-2 logout" href="{{ route('logout') }}"

@@ -13,6 +13,7 @@
     <!--    Theme Stylesheet-->
     <link rel="stylesheet" href="{{asset('/')}}/admin/assets/css/style.css">
     <link rel="shortcut icon" href="{{asset('/')}}/admin/assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/admin/assets/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -53,7 +54,7 @@
 
                 <div class="form-group col-12 mb-3">
                     <label class="col-sm-3"></label>
-                    <button type="submit" class="col-sm-9 btn btn-block my-btn-submit">Login</button>
+                    <button type="submit" class="col-sm-9 btn btn-block my-btn-submit btn btn-success">Login</button>
                 </div>
             </form>
         </div>
