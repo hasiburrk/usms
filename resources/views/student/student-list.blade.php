@@ -38,8 +38,8 @@
                         @foreach ($students as $student) 
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>@if(isset($students[0]->student_photo))
-                            <img src="{{ asset($students[0]->student_photo) }}" alt="Profile Picture">
+                        <td>@if(isset($student->student_photo))
+                            <img src="{{ asset($student->student_photo) }}" class="img-thumbnail" style="width: 40%" alt="Profile Picture">
                         @else
                            <img src="{{ asset('/admin/assets/images/avatar.png') }}" class="img-thumbnail" style="width: 40%" alt="Profile Picture" >
                          @endif</td>
@@ -54,7 +54,7 @@
 
                         <td>
                         <a href="{{ route('student-details',['id'=>$student->id]) }}" target="_blank" class="btn btn-sm btn-dark"><span class="fa fa-eye" title="Details" ></span></a>
-                            <a href="" class="btn btn-sm btn-info"><span class="fa fa-edit" title="Edit"></span></a>
+                        <a href="{{ route('student-info-update',['id'=>$student->id]) }}" target="_blank" class="btn btn-sm btn-info"><span class="fa fa-edit" title="Edit"></span></a>
                             <a href="{{ route('student-delete',['id'=>$student->id]) }}" onclick="return confirm('If you want to delete this item Press  OK')" class="btn btn-sm btn-danger"><span class="fa fa-trash" title="Delete"></span></a>
                         </td>
  

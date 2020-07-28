@@ -20,13 +20,7 @@
                            <img src="{{ asset('/admin/assets/images/avatar.png') }}" class="img-thumbnail" style="width: 100%" alt="Profile Picture" >
                          @endif
                          
-                         <table class="table table-bordered">
-                            <tr>
-                                <td>
-                                    <button data-toggle="modal" data-target="#studentBasicInfoUpdate" class="btn btn-block my-btn-submit">Update Profile</button>
-                                </td>
-                            </tr>
-                         </table>
+
                     </div>
                     <div class="col-md-9">
                         @include('student.details.basic-info')
@@ -42,7 +36,7 @@
 
 {{-- modal --}}
 
-@include('student.details.modal.basic-info-update')
+
 
 
 @endsection
