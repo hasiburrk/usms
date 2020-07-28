@@ -21,5 +21,16 @@ class UsersTableSeeder extends Seeder
         'email' => 'ak@gmail.com',
         'password' => bcrypt('123456')
       ]);
+
+
+      DB::table('users')->insert([
+        'role' => 'Librarian',
+        'department_id' => 140146,
+        'name' => 'Animesh karmakar',
+        'mobile' => '102392929',
+        'avatar' => 'Null',
+        'email' => 'ak@gmail.com',
+        'password' => bcrypt('123456')
+      ]);
     }
 }

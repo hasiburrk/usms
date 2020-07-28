@@ -9,33 +9,62 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Image;
+use Session;
 
 class UserRegistrationController extends Controller
 {
-  
+
     public function showRegistrationForm(){
         $usertypes = UserType::all();
-        
+
         return view('admin.users.registration-from',[
             'usertypes'=>$usertypes
-        ]);	
+        ]);
     }
 
     public function userSave(Request $request)
     {
-        $this->validator($request->all())->validate();
 
-        event(new Registered($users = $this->create($request->all())));
+       $request->validate([
+         'role' => ['required'],
+          // 'department_id' => ['required'],
+         'name' => ['required', 'string', 'max:255'],
+         'mobile' => ['required', 'max:13'],
+         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+         'password' => ['required', 'string', 'min:8', 'confirmed'],
+      ]);
 
-        $users = User::all();
-        return view ('admin.users.user-list',['users'=>$users]);
+
+      $user = new User;
+      $user->name = $request->input('name');
+
+      if($request->has('department_id')) {
+      $user->department_id = $request->input('department_id');
+    }else $user->department_id = -1;
+      $user->role = $request->input('role');
+      $user->mobile = $request->input('mobile');
+      $user->email = $request->input('email');
+      $user->password = bcrypt($request->input('password'));
+
+      $user->save();
+      Session::flash('message', " $user->role added Successfully! ");
+      Session::flash('alert-class', 'alert-success');
+      return back();
+
+        // $this->validator($request->all())->validate();
+        //
+        // event(new Registered($users = $this->create($request->all())));
+        //
+        // $users = User::all();
+        // $users->save();
+        // return view ('admin.users.user-list',['users'=>$users]);
     }
 
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'role' => ['required'],
-             'department_id' => ['required'],
+             // 'department_id' => ['required'],
             'name' => ['required', 'string', 'max:255'],
             'mobile' => ['required', 'string', 'min:13', 'max:13'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -66,12 +95,12 @@ class UserRegistrationController extends Controller
 
   public function userProfile($userId){
     $user = User::find($userId);
-    return view('admin.users.profile',['user'=>$user]);    
+    return view('admin.users.profile',['user'=>$user]);
    }
 
    public function changeUserInfo($id){
     $user = User::find($id);
-    return view('admin.users.change-user-info',['user'=>$user]);   
+    return view('admin.users.change-user-info',['user'=>$user]);
 
    }
 
@@ -94,7 +123,7 @@ class UserRegistrationController extends Controller
 
    public function changeUserAvatar($id){
     $user = User::find($id);
-    return view('admin.users.change-user-avatar',['user'=>$user]);   
+    return view('admin.users.change-user-avatar',['user'=>$user]);
 
    }
 
