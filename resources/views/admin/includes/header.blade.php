@@ -6,18 +6,29 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PUST | Student Management System</title>
-<link rel="stylesheet" href="/admin/assets/fonts/fa/css/all.min.css">
-    <link rel="stylesheet" href="/admin/assets/css/animate.css">
-    <link rel="stylesheet" href="/admin/assets/plugins/owl-carosel/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/admin/assets/plugins/owl-carosel/css/owl.theme.default.css">
-    <link rel="stylesheet" href="/admin/assets/plugins/magnific-popup/css/magnific-popup.css">
-    <link rel="stylesheet" href="/admin/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/admin/assets/css/sub-dropdown.css">
-    <link rel="stylesheet" href="/admin/assets/plugins/data-table/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="/admin/assets/plugins/data-table/css/fixedHeader.bootstrap4.min.css">
-    <link rel="stylesheet" href="/admin/assets/css/style.css">
-    <link rel="shortcut icon" href="/admin/assets/images/favicon.png" type="image/x-icon">
-     <script type="text/javascript" src="/admin/assets/js/jquery-3.4.1.js"></script>
+
+     <!--    Font Awesome Stylesheet-->
+    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/fonts/fa/css/all.min.css">
+    <!--    Animate CSS-->
+    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/css/animate.css">
+    <!--    Owl Carosel Stylesheets-->
+    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/plugins/owl-carosel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/plugins/owl-carosel/css/owl.theme.default.css">
+    <!--    Magnetic Popup-->
+    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/plugins/magnific-popup/css/magnific-popup.css">
+    <!--    Bootstrap-4.3 Stylesheet-->
+    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/css/sub-dropdown.css">
+    <!--    Data Table CSS-->
+    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/plugins/data-table/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/plugins/data-table/css/fixedHeader.bootstrap4.min.css">
+    <!--    Theme Stylesheet-->
+    <link rel="stylesheet" href="{{ asset('/')}}/admin/assets/css/style.css">
+    <!--    Favicon-->
+    <link rel="shortcut icon" href="{{ asset('/')}}/admin/assets/images/favicon.png" type="image/x-icon">
+    <!--    jQuery-->
+    {{--<script src="{{ asset('/')}}/admin/assets/js/jquery-3.3.1.slim.min.js"></script> --}}
+     <script src="{{ asset('/')}}/admin/assets/js/jquery-3.4.1.js"></script>
 
 </head>
 <body>
