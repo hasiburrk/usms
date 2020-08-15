@@ -149,7 +149,7 @@ Route::post('/user-registration',[
             'uses'=>'SliderController@slideUnpublished',
             'as'=>'slide-unpublished'
         ]);
-        
+
         Route::get('/slide-published/{id}',[
             'uses'=>'SliderController@slidePublished',
             'as'=>'slide-published'
@@ -456,6 +456,9 @@ Route::post('/student-info-updated',[
     'as'=>'student-info-updated'
 ]);
 
+Route::get('student-login', 'StudentController@login');
+Route::post('student-login', 'StudentController@logged_in');
+
 
 Route::get('/dept-wise-student-list/{userId}',[
     'uses'=>'StudentController@deptWiseStudentList',
@@ -529,3 +532,4 @@ Route::get('/teacher-wise-course-list/{userId}',[
 Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/student-dashboard', 'StudentController@dashboard');

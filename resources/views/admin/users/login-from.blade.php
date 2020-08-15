@@ -59,6 +59,12 @@
             </form>
         </div>
     </div>
+    <div>
+        <div style="margin-left: 50%;">
+            <p>Are you student ?   <a href="student-login">Login</a>
+            </p>
+        </div>
+    </div>
 </section>
 <!--Content End-->
 

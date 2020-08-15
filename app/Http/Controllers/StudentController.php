@@ -13,9 +13,45 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Image;
+use Illuminate\Support\Facades\Redirect;
 
 class StudentController extends Controller
 {
+  public function login()
+  {
+    return view('student.student-login');
+  }
+
+  public function logged_in(Request $request)
+  {
+      $request->validate([
+          'mobile' => 'required',
+          'password' => 'required'
+      ]);
+
+    //   $credentials = $request->only('mobile', 'password');
+    //   if(Auth::attempt($credentials)) {
+    //       return "logged in";
+    //   }
+    //   else {
+    //       return $credentials;
+    //   }
+
+    //  $password = Hash::make($request->password);
+      $student = Student::where('student_mobile', $request->mobile)->where('password', $request->password)->get();
+
+      if($student->count() > 0) {
+        return Redirect::to('/student-dashboard');
+      }
+      else return Redirect::back()->withSuccess('Incorrect credentials');
+  }
+
+
+  public function dashboard()
+  {
+      return 'Welcome to Student Dashboard';
+  }
+
     public function studentRegistration(){
         $faculties = Faculty::all();
         $levelTerms = LevelTerm::all();
@@ -24,11 +60,11 @@ class StudentController extends Controller
             'faculties'=>$faculties,
             'levelTerms'=>$levelTerms,
             'sessions'=>$sessions,
-             
+
         ]);
     }
 
-    
+
 
     public function studentSave(Request $request){
         $this->validate($request,[
@@ -76,7 +112,7 @@ class StudentController extends Controller
         $student->save();
 
         return back()->with('message','Student Registration Sucessfully.');
-    
+
     }
     public function studentList(){
         $students = DB::table('students')
@@ -151,7 +187,7 @@ class StudentController extends Controller
 
     public function studentDetails($id){
         $students = $this->getSingleStudent($id);
-        
+
         return view('student.details.profile',[
             'students'=>$students,
         ]);
@@ -226,7 +262,7 @@ class StudentController extends Controller
     public function deptWiseStudentList($userId){
         $user = User::find($userId);
         $students = DB::table('students')
-        
+
         ->join('sessions','students.session_id','=','sessions.id')
         ->select('students.*','sessions.session_name')
         ->where([
