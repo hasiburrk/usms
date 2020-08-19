@@ -9,8 +9,14 @@
 
     <div class="container py-5 mt-5 shadow-lg" style="border: 1px solid black; background: lightgray;">
       <div class="row justify-content-center">
-        <h1 class="text-center">student login form</h1>
+        <h1 class="text-center">Student Login Form</h1>
       </div>
+      @if(session()->has('message'))
+      <div class="alert alert-danger text-center">
+        {{ session()->get('message') }}
+      </div>
+        
+      @endif
       <div class="row justify-content-center">
         <table>
           <form class="" id="loginForm" onsubmit="return validateForm()" action="student-login" method="post">

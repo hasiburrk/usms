@@ -43,7 +43,7 @@ class StudentController extends Controller
       if($student->count() > 0) {
         return Redirect::to('/student-dashboard');
       }
-      else return Redirect::back()->withSuccess('Incorrect credentials');
+      else return Redirect::back()->with('message', 'Incorrect credentials');
   }
 
 
